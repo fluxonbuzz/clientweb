@@ -9,7 +9,6 @@ import {
   Gamepad2,
   Settings,
   ShieldCheck,
-  Star,
   Trophy,
   Zap,
   Lock,
