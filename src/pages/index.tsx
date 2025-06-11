@@ -9,6 +9,7 @@ import {
   Gamepad2,
   Settings,
   ShieldCheck,
+  Star,
   Trophy,
   Zap,
   Lock,
@@ -39,7 +40,7 @@ import { motion } from "framer-motion";
 const aboutStats = [
   { label: "Games Modded", value: "50+", icon: Gamepad2 },
   { label: "Happy Users", value: "500K+", icon: Users },
-  { label: "RC Models", value: "20+", icon: Cricket },
+  { label: "RC Models", value: "20+", icon: Star },
 ];
 
 const mods = [
@@ -396,3 +397,5 @@ export default function Home() {
     </div>
   );
 }
+
+luicide dont have cricket
