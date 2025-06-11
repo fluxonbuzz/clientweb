@@ -60,7 +60,7 @@ const mods = [
     href: "#products",
   },
   {
-    title: "Cricket 19 Mobile Mod",
+    title: "Cricket 19 Mobile Moddd",
     description: "Performance optimized mod for low-end devices",
     image: "/assets/cricket19.webm",
     href: "#download",
