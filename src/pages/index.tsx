@@ -16,8 +16,8 @@ import {
   Award,
   Users,
   Shield,
+  Radio,
 } from "lucide-react";
-import { Cricket } from "lucide-react"; // Explicitly import Cricket icon
 import Spline from "@splinetool/react-spline";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -40,7 +40,7 @@ import { motion } from "framer-motion";
 const aboutStats = [
   { label: "Games Modded", value: "50+", icon: Gamepad2 },
   { label: "Happy Users", value: "500K+", icon: Users },
-  { label: "RC Models", value: "20+", icon: Cricket },
+  { label: "RC Models", value: "20+", icon: Radio },
 ];
 
 const mods = [
@@ -73,7 +73,7 @@ const services = [
   {
     service: "RC Models",
     description: "Custom RC cricket models with advanced controls",
-    icon: Cricket,
+    icon: Radio,
   },
   {
     service: "Performance",
@@ -112,7 +112,7 @@ export default function Home() {
             <div className="container flex flex-col items-center text-center">
               <div className="mb-8 flex space-x-3">
                 <span className="flex items-center rounded-full bg-emerald-500/10 px-4 py-1 text-sm font-medium text-emerald-500">
-                  <Cricket className="mr-1 h-4 w-4" /> Game Mods
+                  <Gamepad2 className="mr-1 h-4 w-4" /> Game Mods
                 </span>
                 <span className="flex items-center rounded-full bg-blue-500/10 px-4 py-1 text-sm font-medium text-blue-500">
                   <Trophy className="mr-1 h-4 w-4" /> RC Models
