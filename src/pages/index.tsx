@@ -1,3 +1,4 @@
+import Container from "@/components/Container";
 import { useEffect, useRef, Suspense, useState } from "react";
 import styles from "@/styles/Home.module.css";
 import { Button } from "@/components/ui/button";
@@ -306,7 +307,7 @@ export default function Home() {
                   <ul className="mt-6 space-y-3 text-gray-300">
                     <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> All Features Unlocked</li>
                     <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> No Watermarks</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> Lifetime Updates</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> Source Code</li>
                     <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> Premium Support</li>
                   </ul>
                   <Button className="mt-8 w-full rounded-full bg-yellow-500 text-gray-900 hover:bg-yellow-400">
@@ -315,7 +316,7 @@ export default function Home() {
                 </div>
 
                 <div className="rounded-xl border border-gray-700 bg-gray-800 p-8">
-                  <h3 className="text-xl font-semibold">RC Bundle</h3>
+                  <h3 className="text-xl font-semibold">Example store</h3>
                   <div className="mt-4 text-4xl font-bold text-blue-400">₹500</div>
                   <ul className="mt-6 space-y-3 text-gray-400">
                     <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-blue-500" /> All Mods + 3 RC Models</li>
@@ -386,7 +387,7 @@ export default function Home() {
                   </Button>
                 </div>
                 <p className="mt-6 text-sm text-gray-500">
-                  Premium version available for just ₹200 - One time payment
+                  Premium version of website available for just ₹200 - One time payment
                 </p>
               </div>
             </div>
