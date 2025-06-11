@@ -17,6 +17,7 @@ import {
   Users,
   Shield,
 } from "lucide-react";
+import { Cricket } from "lucide-react"; // Explicitly import Cricket icon
 import Spline from "@splinetool/react-spline";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -39,7 +40,7 @@ import { motion } from "framer-motion";
 const aboutStats = [
   { label: "Games Modded", value: "50+", icon: Gamepad2 },
   { label: "Happy Users", value: "500K+", icon: Users },
-  { label: "RC Models", value: "20+", icon: Star },
+  { label: "RC Models", value: "20+", icon: Cricket },
 ];
 
 const mods = [
@@ -396,5 +397,3 @@ export default function Home() {
     </div>
   );
 }
-
-luicide dont have cricket
