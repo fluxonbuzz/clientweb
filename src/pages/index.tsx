@@ -5,10 +5,11 @@ import { Button } from "@/components/ui/button";
 import {
   ChevronRight,
   Code2,
-  Frame,
-  SearchCheck,
-  Eye,
-  MonitorSmartphone,
+  Gamepad2,
+  Smartphone,
+  Download,
+  Settings,
+  ShieldCheck,
 } from "lucide-react";
 import { TriangleDownIcon } from "@radix-ui/react-icons";
 import Spline from "@splinetool/react-spline";
@@ -28,74 +29,74 @@ import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
 
 const aboutStats = [
-  { label: "Years of experience", value: "3+" },
-  { label: "Technologies mastered", value: "5+" },
-  { label: "Companies worked with", value: "15+" },
+  { label: "Games Modded", value: "50+" },
+  { label: "Happy Users", value: "500K+" },
+  { label: "RC Models Created", value: "20+" },
 ];
 
-const projects = [
+const mods = [
   {
-    title: "Unqueue",
-    description: "E-commerce platform for selling digital products",
-    image: "/assets/unqueue.webm",
-    href: "https://unqueue.shop/",
+    title: "Cricket 24 Mobile Mod",
+    description: "Enhanced graphics, realistic physics, and new teams",
+    image: "/assets/cricket-mod.webm",
+    href: "#download",
   },
   {
-    title: "InfiniteVPS",
-    description: "High performance VPS hosting solution",
-    image: "/assets/infinitevps.webm",
-    href: "#",
+    title: "RC Cricket Drone",
+    description: "Custom RC drone with cricket ball tracking",
+    image: "/assets/rc-drone.webm",
+    href: "#products",
   },
   {
-    title: "TranslateBot",
-    description: "Powerful Multilingual Translation Bot for Discord",
-    image: "/assets/translate_bot.webm",
-    href: "https://translatebot.app/",
+    title: "Real Cricket Mod",
+    description: "Unlocked all players, stadiums and premium features",
+    image: "/assets/real-cricket.webm",
+    href: "#download",
   },
   {
-    title: "Wrona",
-    description: "Robotics-focused technology company",
-    image: "/assets/wrona.jpeg",
-    href: "https://www.wrona.com/",
+    title: "Mini Cricket RC Set",
+    description: "Complete RC cricket playing set",
+    image: "/assets/rc-set.jpeg",
+    href: "#products",
   },
   {
-    title: "This website",
-    description: "My personal website",
-    image: "/assets/portfolio.webm",
-    href: "https://github.com/wendoj/portfolio",
+    title: "Cricket 19 Mobile Mod",
+    description: "Performance optimized mod for low-end devices",
+    image: "/assets/cricket19.webm",
+    href: "#download",
   },
 ];
 
 const services = [
   {
-    service: "Frontend Development",
+    service: "Game Modding",
     description:
-      "Creating stellar user interfaces and web experiences using the latest technologies.",
-    icon: Code2,
+      "Enhancing mobile cricket games with new features, unlocked content and performance improvements.",
+    icon: Gamepad2,
   },
   {
-    service: "UX Design",
+    service: "RC Model Design",
     description:
-      "Building intuitive, user-centric designs that drive engagement and conversion.",
-    icon: Frame,
+      "Creating custom RC cricket models with advanced controls and realistic gameplay.",
+    icon: Settings,
   },
   {
-    service: "SEO Optimization",
+    service: "Performance Optimization",
     description:
-      "Enhancing your website's visibility in search engines for increased organic traffic.",
-    icon: SearchCheck,
+      "Making games run smoother on all devices with our optimized mods.",
+    icon: Smartphone,
   },
   {
-    service: "Responsive Design",
+    service: "Safe Mods",
     description:
-      "Designing websites that look and perform equally well on all devices and screen sizes.",
-    icon: MonitorSmartphone,
+      "All our mods are tested to ensure they're safe and won't get your account banned.",
+    icon: ShieldCheck,
   },
   {
-    service: "Backend Development",
+    service: "Easy Installation",
     description:
-      "Developing robust, scalable server-side logic for a wide range of web applications.",
-    icon: Eye,
+      "Step-by-step guides to install our mods with no technical knowledge required.",
+    icon: Download,
   },
 ];
 
@@ -106,7 +107,6 @@ export default function Home() {
   const [current, setCurrent] = useState<number>(0);
   const [count, setCount] = useState<number>(0);
 
-  // handle scroll
   useEffect(() => {
     const sections = document.querySelectorAll("section");
     const navLinks = document.querySelectorAll(".nav-link");
@@ -135,7 +135,6 @@ export default function Home() {
 
         if (li.getAttribute("href") === `#${current}`) {
           li.classList.add("nav-active");
-          console.log(li.getAttribute("href"));
         }
       });
     }
@@ -159,7 +158,6 @@ export default function Home() {
     });
   }, [carouselApi]);
 
-  // card hover effect
   useEffect(() => {
     const tilt: HTMLElement[] = Array.from(document.querySelectorAll("#tilt"));
     VanillaTilt.init(tilt, {
@@ -190,9 +188,9 @@ export default function Home() {
               data-scroll-speed=".09"
               className="flex flex-row items-center space-x-1.5"
             >
-              <span className={styles.pill}>next.js</span>
-              <span className={styles.pill}>tailwindcss</span>
-              <span className={styles.pill}>typescript</span>
+              <span className={styles.pill}>game mods</span>
+              <span className={styles.pill}>rc models</span>
+              <span className={styles.pill}>cricket</span>
             </div>
             <div>
               <h1
@@ -202,11 +200,11 @@ export default function Home() {
                 data-scroll-direction="horizontal"
               >
                 <span className="text-6xl tracking-tighter text-foreground 2xl:text-8xl">
-                  Hello, I&apos;m
+                  Welcome to
                   <br />
                 </span>
                 <span className="clash-grotesk text-gradient text-6xl 2xl:text-8xl">
-                  WendoJ.
+                  TH Cricket.
                 </span>
               </h1>
               <p
@@ -215,8 +213,7 @@ export default function Home() {
                 data-scroll-speed=".06"
                 className="mt-1 max-w-lg tracking-tight text-muted-foreground 2xl:text-xl"
               >
-                An experienced full-stack website developer with a passion for
-                crafting unique digital experiences.
+                Your premier source for mobile cricket game mods and custom RC cricket models.
               </p>
             </div>
             <span
@@ -225,9 +222,9 @@ export default function Home() {
               data-scroll-speed=".06"
               className="flex flex-row items-center space-x-1.5 pt-6"
             >
-              <Link href="mailto:wendoj@proton.me" passHref>
+              <Link href="#download" passHref>
                 <Button>
-                  Get in touch <ChevronRight className="ml-1 h-4 w-4" />
+                  Download Mods <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </Link>
               <Button
@@ -244,7 +241,7 @@ export default function Home() {
                 isScrolled && styles["scroll--hidden"],
               )}
             >
-              Scroll to discover{" "}
+              Scroll to explore{" "}
               <TriangleDownIcon className="mt-1 animate-bounce" />
             </div>
           </div>
@@ -255,7 +252,7 @@ export default function Home() {
             className="mt-14 h-full w-full xl:mt-0"
           >
             <Suspense fallback={<span>Loading...</span>}>
-              <Spline scene="/assets/scene.splinecode" />
+              <Spline scene="/assets/cricket-scene.splinecode" />
             </Suspense>
           </div>
         </section>
@@ -268,20 +265,12 @@ export default function Home() {
             data-scroll-position="top"
             className="my-14 flex max-w-6xl flex-col justify-start space-y-10"
           >
-            <h2 className="py-16  pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
-              I&apos;m an experienced full-stack developer proficient in{" "}
-              <Link
-                href="https://create.t3.gg/"
-                target="_blank"
-                className="underline"
-              >
-                TypeScript, Tailwind, and Next.js
-              </Link>{" "}
-              since 2021. My experience spans from startups to mid-sized
-              companies, where I&apos;ve been instrumental in the entire product
-              design process; from ideation and wireframing, through
-              prototyping, to the delivery of the final product, all while
-              efficiently collaborating with cross-functional teams.
+            <h2 className="py-16 pb-2 text-3xl font-light leading-normal tracking-tighter text-foreground xl:text-[40px]">
+              TH Cricket has been creating{" "}
+              <span className="text-gradient">high-quality mods</span> for mobile cricket games since 2018. 
+              Our team of passionate cricket fans and tech experts work tirelessly to bring you 
+              the best modding experience with unlocked features, enhanced gameplay, and custom 
+              RC cricket models that bring the game to life.
             </h2>
             <div className="grid grid-cols-2 gap-8 xl:grid-cols-3">
               {aboutStats.map((stat) => (
@@ -301,9 +290,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Projects */}
-        <section id="projects" data-scroll-section>
-          {/* Gradient */}
+        {/* Mods */}
+        <section id="download" data-scroll-section>
           <div className="relative isolate -z-10">
             <div
               className="absolute inset-x-0 -top-40 transform-gpu overflow-hidden blur-[100px] sm:-top-80 lg:-top-60"
@@ -320,28 +308,27 @@ export default function Home() {
           </div>
           <div data-scroll data-scroll-speed=".4" className="my-64">
             <span className="text-gradient clash-grotesk text-sm font-semibold tracking-tighter">
-              ✨ Projects
+              🏏 Featured Mods
             </span>
             <h2 className="mt-3 text-4xl font-semibold tracking-tight tracking-tighter xl:text-6xl">
-              Streamlined digital experiences.
+              Enhance your cricket experience.
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              I&apos;ve worked on a variety of projects, from small websites to
-              large-scale web applications. Here are some of my favorites:
+              Download our premium mods for popular cricket games or check out our custom RC models.
             </p>
 
             {/* Carousel */}
             <div className="mt-14">
               <Carousel setApi={setCarouselApi} className="w-full">
                 <CarouselContent>
-                  {projects.map((project) => (
-                    <CarouselItem key={project.title} className="md:basis-1/2">
+                  {mods.map((mod) => (
+                    <CarouselItem key={mod.title} className="md:basis-1/2">
                       <Card id="tilt">
                         <CardHeader className="p-0">
-                          <Link href={project.href} target="_blank" passHref>
-                            {project.image.endsWith(".webm") ? (
+                          <Link href={mod.href} passHref>
+                            {mod.image.endsWith(".webm") ? (
                               <video
-                                src={project.image}
+                                src={mod.image}
                                 autoPlay
                                 loop
                                 muted
@@ -349,8 +336,8 @@ export default function Home() {
                               />
                             ) : (
                               <Image
-                                src={project.image}
-                                alt={project.title}
+                                src={mod.image}
+                                alt={mod.title}
                                 width={600}
                                 height={300}
                                 quality={100}
@@ -361,7 +348,7 @@ export default function Home() {
                         </CardHeader>
                         <CardContent className="absolute bottom-0 w-full bg-background/50 backdrop-blur">
                           <CardTitle className="border-t border-white/5 p-4 text-base font-normal tracking-tighter">
-                            {project.description}
+                            {mod.description}
                           </CardTitle>
                         </CardContent>
                       </Card>
@@ -375,14 +362,14 @@ export default function Home() {
                 <span className="font-semibold">
                   {current} / {count}
                 </span>{" "}
-                projects
+                products
               </div>
             </div>
           </div>
         </section>
 
         {/* Services */}
-        <section id="services" data-scroll-section>
+        <section id="products" data-scroll-section>
           <div
             data-scroll
             data-scroll-speed=".4"
@@ -401,15 +388,14 @@ export default function Home() {
             >
               <div className="flex flex-col py-6 xl:p-6">
                 <h2 className="text-4xl font-medium tracking-tight">
-                  Need more info?
+                  Our Products
                   <br />
                   <span className="text-gradient clash-grotesk tracking-normal">
-                    I got you.
+                    & Services
                   </span>
                 </h2>
                 <p className="mt-2 tracking-tighter text-secondary-foreground">
-                  Here are some of the services I offer. If you have any
-                  questions, feel free to reach out.
+                  From digital mods to physical RC models, we've got everything a cricket enthusiast needs.
                 </p>
               </div>
               {services.map((service) => (
@@ -439,15 +425,16 @@ export default function Home() {
             className="flex flex-col items-center justify-center rounded-lg bg-gradient-to-br from-primary/[6.5%] to-white/5 px-8 py-16 text-center xl:py-24"
           >
             <h2 className="text-4xl font-medium tracking-tighter xl:text-6xl">
-              Let&apos;s work{" "}
-              <span className="text-gradient clash-grotesk">together.</span>
+              Join our{" "}
+              <span className="text-gradient clash-grotesk">community.</span>
             </h2>
             <p className="mt-1.5 text-base tracking-tight text-muted-foreground xl:text-lg">
-              I&apos;m currently available for freelance work and open to
-              discussing new projects.
+              Get the latest mods, RC model updates, and cricket gaming news.
             </p>
-            <Link href="mailto:wendoj@proton.me" passHref>
-              <Button className="mt-6">Get in touch</Button>
+            <Link href="#download" passHref>
+              <Button className="mt-6">
+                <Download className="mr-2 h-4 w-4" /> Download Now
+              </Button>
             </Link>
           </div>
         </section>
@@ -479,7 +466,7 @@ function Gradient() {
               y2="474.645"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#7980fe" />
+              <stop stopColor="#4ade80" />
               <stop offset={1} stopColor="#f0fff7" />
             </linearGradient>
           </defs>
@@ -506,8 +493,8 @@ function Gradient() {
               y2="474.645"
               gradientUnits="userSpaceOnUse"
             >
-              <stop stopColor="#9A70FF" />
-              <stop offset={1} stopColor="#838aff" />
+              <stop stopColor="#3b82f6" />
+              <stop offset={1} stopColor="#60a5fa" />
             </linearGradient>
           </defs>
         </svg>
