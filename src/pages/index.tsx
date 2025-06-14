@@ -125,7 +125,7 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl"
               >
-                <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">TH Cricket</span> Premium
+                <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">Your name</span> Premium
               </motion.h1>
               
               <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
