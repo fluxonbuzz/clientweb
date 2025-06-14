@@ -164,7 +164,7 @@ export default function Home() {
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Why Choose <span className="text-emerald-400">TH Cricket</span>?
+                  Why Choose <span className="text-emerald-400">your name</span>?
                 </h2>
                 <p className="mt-4 text-lg text-gray-400">
                   Trusted by cricket enthusiasts worldwide
