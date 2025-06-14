@@ -373,7 +373,7 @@ export default function Home() {
             <div className="container">
               <div className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 px-8 py-12 text-center shadow-xl">
                 <h2 className="text-3xl font-bold text-white sm:text-4xl">
-                  Join the <span className="text-emerald-400">TH Cricket</span> Community
+                  Join the <span className="text-emerald-400">your name</span> Community
                 </h2>
                 <p className="mt-4 text-lg text-gray-400">
                   Get the latest mods, updates, and cricket gaming news.
