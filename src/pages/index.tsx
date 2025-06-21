@@ -6,7 +6,7 @@ import {
   ChevronRight,
   Download,
   Smartphone,
-  Gamepad2,
+  Heart,
   Settings,
   ShieldCheck,
   Trophy,
@@ -16,7 +16,7 @@ import {
   Award,
   Users,
   Shield,
-  Radio,
+  Gift,
 } from "lucide-react";
 import Spline from "@splinetool/react-spline";
 import Link from "next/link";
@@ -38,51 +38,51 @@ import {
 import { motion } from "framer-motion";
 
 const aboutStats = [
-  { label: "Games Modded", value: "50+", icon: Gamepad2 },
-  { label: "Happy Users", value: "500K+", icon: Users },
-  { label: "RC Models", value: "20+", icon: Radio },
+  { label: "Toys Created", value: "50+", icon: Gift },
+  { label: "Happy Kids", value: "500K+", icon: Users },
+  { label: "Cute Designs", value: "20+", icon: Heart },
 ];
 
-const mods = [
+const products = [
   {
-    title: "Cricket 24 Mobile",
-    description: "Enhanced graphics & realistic physics",
-    image: "/assets/cricket-mod.webm",
-    features: ["4K Textures", "60FPS Support", "All Teams Unlocked"],
+    title: "Hello Kitty Plush",
+    description: "Super soft and huggable plush toy",
+    image: "/assets/kitty-plush.webm",
+    features: ["30cm Size", "Premium Materials", "Washable"],
   },
   {
-    title: "RC Cricket Drone",
-    description: "Custom ball tracking drone",
-    image: "/assets/rc-drone.webm",
-    features: ["HD Camera", "Auto Tracking", "2KM Range"],
+    title: "Hello Kitty Backpack",
+    description: "Adorable school backpack for kids",
+    image: "/assets/kitty-bag.webm",
+    features: ["Lightweight", "Multiple Pockets", "Durable"],
   },
   {
-    title: "Real Cricket Mod",
-    description: "Unlocked all premium features",
-    image: "/assets/real-cricket.webm",
-    features: ["All Players", "Premium Stadiums", "No Ads"],
+    title: "Hello Kitty Stationery",
+    description: "Complete school set with cute designs",
+    image: "/assets/kitty-stationery.webm",
+    features: ["10 Items", "Eraser Set", "Pencil Case"],
   },
 ];
 
 const services = [
   {
-    service: "Game Modding",
-    description: "Enhanced mobile cricket games with new features",
-    icon: Gamepad2,
+    service: "Plush Toys",
+    description: "Super soft and huggable Hello Kitty friends",
+    icon: Gift,
   },
   {
-    service: "RC Models",
-    description: "Custom RC cricket models with advanced controls",
-    icon: Radio,
+    service: "School Supplies",
+    description: "Cute stationery for school days",
+    icon: Heart,
   },
   {
-    service: "Performance",
-    description: "Optimized for all devices",
-    icon: Zap,
+    service: "Quality",
+    description: "Premium materials for lasting joy",
+    icon: Star,
   },
   {
     service: "Safety",
-    description: "100% ban-free experience",
+    description: "100% child-safe materials",
     icon: Shield,
   },
 ];
@@ -104,18 +104,18 @@ export default function Home() {
   }, [carouselApi]);
 
   return (
-    <div className="bg-gray-900 text-gray-100">
+    <div className="bg-pink-50 text-pink-900">
       <Container>
         <div className="flex flex-col items-center">
           {/* Hero Section */}
           <section className="flex w-full flex-col items-center py-20 md:py-32">
             <div className="container flex flex-col items-center text-center">
               <div className="mb-8 flex space-x-3">
-                <span className="flex items-center rounded-full bg-emerald-500/10 px-4 py-1 text-sm font-medium text-emerald-500">
-                  <Gamepad2 className="mr-1 h-4 w-4" /> Game Mods
+                <span className="flex items-center rounded-full bg-pink-200 px-4 py-1 text-sm font-medium text-pink-700">
+                  <Gift className="mr-1 h-4 w-4" /> Cute Toys
                 </span>
-                <span className="flex items-center rounded-full bg-blue-500/10 px-4 py-1 text-sm font-medium text-blue-500">
-                  <Trophy className="mr-1 h-4 w-4" /> RC Models
+                <span className="flex items-center rounded-full bg-purple-200 px-4 py-1 text-sm font-medium text-purple-700">
+                  <Heart className="mr-1 h-4 w-4" /> Made with Love
                 </span>
               </div>
               
@@ -125,61 +125,61 @@ export default function Home() {
                 transition={{ duration: 0.8 }}
                 className="text-5xl font-bold tracking-tight sm:text-6xl md:text-7xl"
               >
-                <span className="bg-gradient-to-r from-emerald-400 to-blue-400 bg-clip-text text-transparent">Your name</span> Premium
+                <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Saanvi's</span> Hello Kitty World
               </motion.h1>
               
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-gray-400">
-                Professional cricket mods and RC models for serious players.
-                <span className="mt-2 block text-sm text-yellow-400">
-                  <Star className="inline h-4 w-4" /> Demo Version - Full features unlock for just ₹200
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-pink-700">
+                Adorable Hello Kitty products for kids and collectors.
+                <span className="mt-2 block text-sm text-pink-500">
+                  <Star className="inline h-4 w-4" /> Special Edition - Limited stock available
                 </span>
               </p>
               
               <div className="mt-10 flex gap-x-6">
-                <Link href="#download">
-                  <Button className="rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 px-6 py-3 text-white shadow-lg hover:shadow-emerald-500/20">
-                    <Download className="mr-2 h-5 w-5" /> Download Demo
+                <Link href="#products">
+                  <Button className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-6 py-3 text-white shadow-lg hover:shadow-pink-500/20">
+                    <Heart className="mr-2 h-5 w-5" /> See Products
                   </Button>
                 </Link>
                 <Link href="#premium">
-                  <Button variant="outline" className="rounded-full border-yellow-400 px-6 py-3 text-yellow-400 hover:bg-yellow-400/10">
-                    <Award className="mr-2 h-5 w-5" /> Unlock Premium
+                  <Button variant="outline" className="rounded-full border-pink-500 px-6 py-3 text-pink-500 hover:bg-pink-500/10">
+                    <Award className="mr-2 h-5 w-5" /> Special Editions
                   </Button>
                 </Link>
               </div>
             </div>
             
             <div className="mt-16 w-full max-w-4xl">
-              <Suspense fallback={<div className="h-64 w-full rounded-xl bg-gray-800" />}>
+              <Suspense fallback={<div className="h-64 w-full rounded-xl bg-pink-100" />}>
                 <Spline 
-                  scene="/assets/cricket-scene.splinecode" 
-                  className="rounded-2xl border border-gray-800 shadow-xl"
+                  scene="/assets/hello-kitty-scene.splinecode" 
+                  className="rounded-2xl border-2 border-pink-200 shadow-xl"
                 />
               </Suspense>
             </div>
           </section>
 
           {/* Stats Section */}
-          <section className="w-full bg-gray-800/50 py-20">
+          <section className="w-full bg-pink-100 py-20">
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Why Choose <span className="text-emerald-400">your name</span>?
+                  Why Choose <span className="text-pink-400">Saanvi's</span> Collection?
                 </h2>
-                <p className="mt-4 text-lg text-gray-400">
-                  Trusted by cricket enthusiasts worldwide
+                <p className="mt-4 text-lg text-pink-700">
+                  Loved by kids and collectors worldwide
                 </p>
                 
                 <div className="mt-12 grid grid-cols-3 gap-8">
                   {aboutStats.map((stat) => (
                     <div key={stat.label} className="text-center">
                       <div className="flex justify-center">
-                        <stat.icon className="h-10 w-10 text-emerald-500" />
+                        <stat.icon className="h-10 w-10 text-pink-500" />
                       </div>
-                      <div className="mt-4 text-4xl font-bold text-emerald-400 sm:text-5xl">
+                      <div className="mt-4 text-4xl font-bold text-pink-400 sm:text-5xl">
                         {stat.value}
                       </div>
-                      <div className="mt-2 text-sm font-medium text-gray-400 uppercase tracking-wider">
+                      <div className="mt-2 text-sm font-medium text-pink-600 uppercase tracking-wider">
                         {stat.label}
                       </div>
                     </div>
@@ -189,68 +189,67 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Mods Section */}
-          <section id="download" className="w-full py-20">
+          {/* Products Section */}
+          <section id="products" className="w-full py-20">
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
-                <span className="flex items-center justify-center text-sm font-semibold tracking-wider text-emerald-500">
-                  <Zap className="mr-2 h-4 w-4" /> FEATURED MODS (DEMO)
+                <span className="flex items-center justify-center text-sm font-semibold tracking-wider text-pink-500">
+                  <Heart className="mr-2 h-4 w-4" /> FEATURED PRODUCTS
                 </span>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-                  Premium Cricket Experience
+                  Adorable Hello Kitty Collection
                 </h2>
-                <p className="mt-4 text-lg text-gray-400">
-                  Full version unlocks all features for just ₹200
+                <p className="mt-4 text-lg text-pink-700">
+                  Perfect gifts for kids and collectors
                 </p>
               </div>
 
               <div className="mt-12">
                 <Carousel setApi={setCarouselApi} className="w-full">
                   <CarouselContent>
-                    {mods.map((mod) => (
-                      <CarouselItem key={mod.title} className="md:basis-1/2 lg:basis-1/3">
+                    {products.map((product) => (
+                      <CarouselItem key={product.title} className="md:basis-1/2 lg:basis-1/3">
                         <motion.div
                           whileHover={{ y: -5 }}
                           className="h-full"
                         >
-                          <Card className="h-full overflow-hidden border-0 bg-gray-800 shadow-lg">
+                          <Card className="h-full overflow-hidden border-0 bg-white shadow-lg">
                             <CardHeader className="p-0">
                               <div className="relative">
                                 <video
-                                  src={mod.image}
+                                  src={product.image}
                                   autoPlay
                                   loop
                                   muted
                                   className="aspect-video w-full object-cover"
                                 />
-                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-pink-500/80 to-transparent p-4">
                                   <div className="flex items-center">
-                                    <Lock className="mr-2 h-4 w-4 text-yellow-400" />
-                                    <span className="text-xs font-medium text-yellow-400">DEMO LIMITED</span>
+                                    <Star className="mr-2 h-4 w-4 text-yellow-300" />
+                                    <span className="text-xs font-medium text-white">BESTSELLER</span>
                                   </div>
                                 </div>
                               </div>
                             </CardHeader>
                             <CardContent className="p-6">
-                              <CardTitle className="text-xl font-semibold">
-                                {mod.title}
+                              <CardTitle className="text-xl font-semibold text-pink-900">
+                                {product.title}
                               </CardTitle>
-                              <p className="mt-2 text-gray-400">
-                                {mod.description}
+                              <p className="mt-2 text-pink-700">
+                                {product.description}
                               </p>
                               <ul className="mt-4 space-y-2">
-                                {mod.features.map((feature) => (
-                                  <li key={feature} className="flex items-center text-sm text-gray-300">
-                                    <Star className="mr-2 h-3 w-3 text-emerald-500" />
+                                {product.features.map((feature) => (
+                                  <li key={feature} className="flex items-center text-sm text-pink-600">
+                                    <Heart className="mr-2 h-3 w-3 text-pink-400" />
                                     {feature}
                                   </li>
                                 ))}
                               </ul>
                               <Button
-                                variant="outline"
-                                className="mt-6 w-full rounded-full border-emerald-500 text-emerald-500 hover:bg-emerald-500/10"
+                                className="mt-6 w-full rounded-full bg-pink-500 text-white hover:bg-pink-600"
                               >
-                                Download Demo
+                                Add to Cart
                               </Button>
                             </CardContent>
                           </Card>
@@ -258,73 +257,73 @@ export default function Home() {
                       </CarouselItem>
                     ))}
                   </CarouselContent>
-                  <CarouselPrevious className="left-4 border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700" />
-                  <CarouselNext className="right-4 border-gray-700 bg-gray-800 text-gray-300 hover:bg-gray-700" />
+                  <CarouselPrevious className="left-4 border-pink-300 bg-white text-pink-500 hover:bg-pink-100" />
+                  <CarouselNext className="right-4 border-pink-300 bg-white text-pink-500 hover:bg-pink-100" />
                 </Carousel>
                 
-                <div className="mt-4 text-center text-sm text-gray-500">
-                  Slide {current} of {count} - Full version unlocks all mods
+                <div className="mt-4 text-center text-sm text-pink-500">
+                  Slide {current} of {count} - More cute products available
                 </div>
               </div>
             </div>
           </section>
 
-          {/* Premium Section */}
-          <section id="premium" className="w-full bg-gradient-to-br from-gray-800 to-gray-900 py-20">
+          {/* Special Editions Section */}
+          <section id="premium" className="w-full bg-gradient-to-br from-pink-100 to-purple-100 py-20">
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
-                <span className="flex items-center justify-center text-sm font-semibold tracking-wider text-yellow-400">
-                  <Award className="mr-2 h-4 w-4" /> PREMIUM UNLOCK
+                <span className="flex items-center justify-center text-sm font-semibold tracking-wider text-purple-500">
+                  <Award className="mr-2 h-4 w-4" /> SPECIAL EDITIONS
                 </span>
                 <h2 className="mt-2 text-3xl font-bold tracking-tight sm:text-4xl">
-                  Unlock Everything for Just <span className="text-yellow-400">₹200</span>
+                  Limited Edition for Just <span className="text-purple-500">$29.99</span>
                 </h2>
-                <p className="mt-4 text-lg text-gray-400">
-                  Get full access to all mods, updates, and premium support
+                <p className="mt-4 text-lg text-pink-700">
+                  Get exclusive Hello Kitty items with special packaging
                 </p>
               </div>
 
               <div className="mt-12 grid gap-8 md:grid-cols-3">
-                <div className="rounded-xl border border-gray-700 bg-gray-800 p-8">
-                  <h3 className="text-xl font-semibold">Demo Version</h3>
-                  <div className="mt-4 text-4xl font-bold text-gray-400">Free</div>
-                  <ul className="mt-6 space-y-3 text-gray-400">
-                    <li className="flex items-center"><Lock className="mr-2 h-4 w-4 text-red-400" /> Limited Features</li>
-                    <li className="flex items-center"><Lock className="mr-2 h-4 w-4 text-red-400" /> Watermarked</li>
-                    <li className="flex items-center"><Lock className="mr-2 h-4 w-4 text-red-400" /> No Updates</li>
+                <div className="rounded-xl border border-pink-200 bg-white p-8">
+                  <h3 className="text-xl font-semibold text-pink-900">Basic Kit</h3>
+                  <div className="mt-4 text-4xl font-bold text-pink-400">$14.99</div>
+                  <ul className="mt-6 space-y-3 text-pink-600">
+                    <li className="flex items-center"><Heart className="mr-2 h-4 w-4 text-pink-400" /> Standard Plush</li>
+                    <li className="flex items-center"><Heart className="mr-2 h-4 w-4 text-pink-400" /> 1 Accessory</li>
+                    <li className="flex items-center"><Heart className="mr-2 h-4 w-4 text-pink-400" /> Regular Packaging</li>
                   </ul>
-                  <Button variant="outline" className="mt-8 w-full rounded-full border-gray-600 text-gray-300">
-                    Current Version
+                  <Button variant="outline" className="mt-8 w-full rounded-full border-pink-400 text-pink-500">
+                    Choose Basic
                   </Button>
                 </div>
 
-                <div className="relative rounded-xl border-2 border-yellow-500 bg-gray-800 p-8 shadow-lg shadow-yellow-500/10">
-                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-yellow-500 px-4 py-1 text-xs font-bold text-gray-900">
-                    RECOMMENDED
+                <div className="relative rounded-xl border-2 border-purple-400 bg-white p-8 shadow-lg shadow-purple-400/10">
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 rounded-full bg-purple-500 px-4 py-1 text-xs font-bold text-white">
+                    POPULAR CHOICE
                   </div>
-                  <h3 className="text-xl font-semibold">Premium Version</h3>
-                  <div className="mt-4 text-4xl font-bold text-yellow-400">₹200</div>
-                  <ul className="mt-6 space-y-3 text-gray-300">
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> All Features Unlocked</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> No Watermarks</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> Source Code</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-emerald-500" /> Premium Support</li>
+                  <h3 className="text-xl font-semibold text-purple-900">Special Edition</h3>
+                  <div className="mt-4 text-4xl font-bold text-purple-500">$29.99</div>
+                  <ul className="mt-6 space-y-3 text-purple-700">
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-purple-500" /> Exclusive Plush</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-purple-500" /> 5 Accessories</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-purple-500" /> Gift Box</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-purple-500" /> Collector's Card</li>
                   </ul>
-                  <Button className="mt-8 w-full rounded-full bg-yellow-500 text-gray-900 hover:bg-yellow-400">
-                    Unlock Premium Now
+                  <Button className="mt-8 w-full rounded-full bg-purple-500 text-white hover:bg-purple-600">
+                    Get Special Edition
                   </Button>
                 </div>
 
-                <div className="rounded-xl border border-gray-700 bg-gray-800 p-8">
-                  <h3 className="text-xl font-semibold">Example store</h3>
-                  <div className="mt-4 text-4xl font-bold text-blue-400">₹500</div>
-                  <ul className="mt-6 space-y-3 text-gray-400">
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-blue-500" /> All Mods + 3 RC Models</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-blue-500" /> Exclusive Designs</li>
-                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-blue-500" /> Priority Support</li>
+                <div className="rounded-xl border border-pink-200 bg-white p-8">
+                  <h3 className="text-xl font-semibold text-pink-900">Deluxe Set</h3>
+                  <div className="mt-4 text-4xl font-bold text-pink-500">$49.99</div>
+                  <ul className="mt-6 space-y-3 text-pink-600">
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-pink-500" /> 3 Plush Toys</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-pink-500" /> Complete Set</li>
+                    <li className="flex items-center"><Star className="mr-2 h-4 w-4 text-pink-500" /> Display Case</li>
                   </ul>
-                  <Button variant="outline" className="mt-8 w-full rounded-full border-blue-500 text-blue-500 hover:bg-blue-500/10">
-                    Get RC Bundle
+                  <Button variant="outline" className="mt-8 w-full rounded-full border-pink-500 text-pink-500 hover:bg-pink-500/10">
+                    Get Deluxe Set
                   </Button>
                 </div>
               </div>
@@ -332,14 +331,14 @@ export default function Home() {
           </section>
 
           {/* Services Section */}
-          <section id="products" className="w-full py-20">
+          <section className="w-full py-20">
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Our <span className="text-emerald-400">Products</span> & Services
+                  Our <span className="text-pink-400">Products</span> & Features
                 </h2>
-                <p className="mt-4 text-lg text-gray-400">
-                  Everything a cricket enthusiast needs
+                <p className="mt-4 text-lg text-pink-700">
+                  Everything a Hello Kitty fan needs
                 </p>
               </div>
 
@@ -351,15 +350,15 @@ export default function Home() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
                     viewport={{ once: true }}
-                    className="rounded-xl border border-gray-700 bg-gray-800 p-8 shadow-sm transition-all hover:border-emerald-500/30 hover:shadow-emerald-500/10"
+                    className="rounded-xl border border-pink-200 bg-white p-8 shadow-sm transition-all hover:border-pink-400 hover:shadow-pink-400/10"
                   >
-                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-emerald-500/10 text-emerald-500">
+                    <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-pink-100 text-pink-500">
                       <service.icon size={24} />
                     </div>
-                    <h3 className="mt-6 text-lg font-semibold">
+                    <h3 className="mt-6 text-lg font-semibold text-pink-900">
                       {service.service}
                     </h3>
-                    <p className="mt-2 text-gray-400">
+                    <p className="mt-2 text-pink-600">
                       {service.description}
                     </p>
                   </motion.div>
@@ -371,23 +370,23 @@ export default function Home() {
           {/* CTA Section */}
           <section className="w-full py-20">
             <div className="container">
-              <div className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-gray-800 to-gray-900 border border-gray-700 px-8 py-12 text-center shadow-xl">
-                <h2 className="text-3xl font-bold text-white sm:text-4xl">
-                  Join the <span className="text-emerald-400">your name</span> Community
+              <div className="mx-auto max-w-4xl rounded-2xl bg-gradient-to-r from-pink-100 to-purple-100 border-2 border-pink-200 px-8 py-12 text-center shadow-xl">
+                <h2 className="text-3xl font-bold text-pink-900 sm:text-4xl">
+                  Join the <span className="text-pink-500">Hello Kitty</span> Club
                 </h2>
-                <p className="mt-4 text-lg text-gray-400">
-                  Get the latest mods, updates, and cricket gaming news.
+                <p className="mt-4 text-lg text-pink-700">
+                  Get the latest products, updates, and special offers.
                 </p>
                 <div className="mt-8 flex justify-center gap-4">
-                  <Button className="rounded-full bg-gradient-to-r from-emerald-500 to-blue-500 px-8 py-3 text-white shadow-lg hover:shadow-emerald-500/20">
-                    <Download className="mr-2 h-5 w-5" /> Download Demo
+                  <Button className="rounded-full bg-gradient-to-r from-pink-500 to-purple-500 px-8 py-3 text-white shadow-lg hover:shadow-pink-500/20">
+                    <Heart className="mr-2 h-5 w-5" /> Shop Now
                   </Button>
-                  <Button variant="outline" className="rounded-full border-yellow-400 px-8 py-3 text-yellow-400 hover:bg-yellow-400/10">
-                    <Award className="mr-2 h-5 w-5" /> Unlock Premium
+                  <Button variant="outline" className="rounded-full border-pink-500 px-8 py-3 text-pink-500 hover:bg-pink-500/10">
+                    <Award className="mr-2 h-5 w-5" /> Special Editions
                   </Button>
                 </div>
-                <p className="mt-6 text-sm text-gray-500">
-                  Premium version of website available for just ₹200 - One time payment
+                <p className="mt-6 text-sm text-pink-500">
+                  Made with love by Saanvi - For all Hello Kitty fans
                 </p>
               </div>
             </div>
@@ -396,3 +395,4 @@ export default function Home() {
       </Container>
     </div>
   );
+}
