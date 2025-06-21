@@ -34,7 +34,7 @@ export default function Footer() {
               passHref
               className="text-foreground transition hover:text-primary"
             >
-              fluxon
+              ofcsaanvi
             </Link>
           </p>
           <hr className="hidden h-6 border-l border-muted md:flex" />
@@ -44,13 +44,13 @@ export default function Footer() {
           </span>
         </span>
         <Link
-          href="/fluxon"
+          href="/mc"
           passHref
           className="text-xs text-muted-foreground hover:text-foreground"
         >
           <Button variant={"outline"}>
             <MailIcon className="h-4 w-4 md:mr-2" />
-            <span className="hidden md:flex">fluxon</span>
+            <span className="hidden md:flex">xyz@saanvi.com</span>
           </Button>
         </Link>
       </div>
