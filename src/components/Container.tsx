@@ -13,8 +13,8 @@ export default function Container(props: ContainerProps) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: "made by fluxon",
-    description: `Creative development studio`,
+    title: "made by saanvieee",
+    description: `idk`,
     type: "website",
     ...customMeta,
   };
