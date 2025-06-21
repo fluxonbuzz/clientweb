@@ -58,7 +58,7 @@ const FlipkartShop = () => {
     },
     {
       id: 3,
-      name: 'Mi 5A 80 cm (32 inch) HD Ready LED Smart Android TV',
+      name: 'Mi 5A 80 lwda lehsoon',
       price: 12999,
       originalPrice: 17999,
       discount: 28,
