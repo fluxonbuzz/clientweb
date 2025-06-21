@@ -38,9 +38,9 @@ import {
 import { motion } from "framer-motion";
 
 const aboutStats = [
-  { label: "Toys Created", value: "50+", icon: Gift },
+  { label: "Toyss", value: "50+", icon: Gift },
   { label: "Happy Kids", value: "500K+", icon: Users },
-  { label: "Cute Designs", value: "20+", icon: Heart },
+  { label: "Cuteee Designs", value: "20+", icon: Heart },
 ];
 
 const products = [
@@ -164,7 +164,7 @@ export default function Home() {
             <div className="container">
               <div className="mx-auto max-w-4xl text-center">
                 <h2 className="text-3xl font-bold tracking-tight sm:text-4xl">
-                  Why Choose <span className="text-pink-400">Saanvi's</span> Collection?
+                  Why Choose <span className="text-pink-400">Saanvi's</span> Collection? even idk
                 </h2>
                 <p className="mt-4 text-lg text-pink-700">
                   Loved by kids and collectors worldwide
