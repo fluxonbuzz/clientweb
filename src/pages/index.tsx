@@ -11,7 +11,6 @@ import {
   Camera,
   PartyPopper,
   Star,
-  Flame,
   Flower2,
   MessageCircleHeart
 } from 'lucide-react';
@@ -24,20 +23,28 @@ export default function SejalsBirthday() {
   const [confetti, setConfetti] = useState(false);
   const [cakeCut, setCakeCut] = useState(false);
 
-  // Real tulip images from Imgur - FIXED: Ensure all are valid URLs
+  // Real tulip images from Imgur
   const tulipImages = [
-    { src: 'https://i.imgur.com/R1y3r8e.jpeg', alt: 'Pink tulip bouquet' },
-    { src: 'https://i.imgur.com/rp5W0Jm.jpeg', alt: 'Red tulips' },
-    { src: 'https://i.imgur.com/0ALwITw.jpeg', alt: 'Yellow tulips' },
-    { src: 'https://i.imgur.com/SNCdfU6.jpeg', alt: 'White tulips' },
-    { src: 'https://i.imgur.com/EFZDr5H.jpeg', alt: 'Purple tulips' }
+    'https://i.imgur.com/R1y3r8e.jpeg', // Pink tulip bouquet
+    'https://i.imgur.com/rp5W0Jm.jpeg', // Red tulips
+    'https://i.imgur.com/0ALwITw.jpeg', // Yellow tulips
+    'https://i.imgur.com/SNCdfU6.jpeg', // White tulips
+    'https://i.imgur.com/EFZDr5H.jpeg'  // Purple tulips
   ];
 
   const cakeImages = [
-    { src: 'https://i.imgur.com/4JX5jBg.jpeg', alt: 'Birthday cake with candles' },
-    { src: 'https://i.imgur.com/ed4zHJp.jpeg', alt: 'Pretty birthday cake' },
-    { src: 'https://i.imgur.com/9hQG3uh.jpeg', alt: 'Cake slice' }
+    'https://i.imgur.com/4JX5jBg.jpeg', // Birthday cake with candles
+    'https://i.imgur.com/ed4zHJp.jpeg', // Pretty birthday cake
+    'https://i.imgur.com/9hQG3uh.jpeg'  // Cake slice
   ];
+
+  // Get the appropriate cake image
+  const getCakeImage = () => {
+    if (cakeCut && cakeImages[2]) {
+      return cakeImages[2];
+    }
+    return cakeImages[0] || '';
+  };
 
   useEffect(() => {
     // Auto trigger some animations after page loads
@@ -75,7 +82,7 @@ export default function SejalsBirthday() {
     <div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-50 to-pink-100">
       {/* Tulip Background Decorations */}
       <div className="fixed inset-0 pointer-events-none overflow-hidden">
-        {tulipImages.map((tulip, index) => (
+        {tulipImages.map((src, index) => (
           <motion.div
             key={index}
             initial={{ opacity: 0, scale: 0 }}
@@ -90,8 +97,8 @@ export default function SejalsBirthday() {
           >
             <div className="relative w-32 h-32">
               <Image
-                src={tulip.src}
-                alt={tulip.alt}
+                src={src}
+                alt={`Tulip ${index + 1}`}
                 fill
                 className="object-contain opacity-30"
                 unoptimized
@@ -224,7 +231,7 @@ export default function SejalsBirthday() {
               className="relative h-64 mb-6 rounded-2xl overflow-hidden border-4 border-white shadow-lg"
             >
               <Image
-                src={cakeCut ? cakeImages[2].src : cakeImages[0].src}
+                src={getCakeImage()}
                 alt="Beautiful Birthday Cake"
                 fill
                 className="object-cover"
@@ -328,15 +335,15 @@ export default function SejalsBirthday() {
                 <h4 className="text-2xl font-bold text-pink-700">Your Tulip Garden 🌷</h4>
               </div>
               <div className="grid grid-cols-2 gap-4">
-                {tulipImages.map((tulip, index) => (
+                {tulipImages.map((src, index) => (
                   <motion.div
                     key={index}
                     whileHover={{ scale: 1.05, rotate: 5 }}
                     className="relative h-32 rounded-xl overflow-hidden border-2 border-white shadow-md"
                   >
                     <Image
-                      src={tulip.src}
-                      alt={tulip.alt}
+                      src={src}
+                      alt={`Beautiful tulip ${index + 1}`}
                       fill
                       className="object-cover"
                       unoptimized
