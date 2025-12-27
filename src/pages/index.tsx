@@ -11,7 +11,7 @@ import {
   Camera,
   PartyPopper,
   Star,
-  Candles,
+  Flame,
   Flower2,
   MessageCircleHeart
 } from 'lucide-react';
