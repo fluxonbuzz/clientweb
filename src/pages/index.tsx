@@ -16,10 +16,7 @@ import {
   Volume2,
   VolumeX,
   User,
-  Smile,
-  WifiOff,
-  Clock,
-  Zap
+  Smile
 } from 'lucide-react';
 import Image from 'next/image';
 
@@ -78,7 +75,9 @@ export default function DidisBirthday() {
     const availableQuotes = funnyQuotes.filter(quote => !funnyMessages.includes(quote));
     if (availableQuotes.length > 0) {
       const randomQuote = availableQuotes[Math.floor(Math.random() * availableQuotes.length)];
-      setFunnyMessages(prev => [...prev, randomQuote]);
+      if (randomQuote) {
+        setFunnyMessages(prev => [...prev, randomQuote]);
+      }
     }
   };
 
