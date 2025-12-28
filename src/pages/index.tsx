@@ -30,7 +30,7 @@ export default function DidisBirthday() {
   const [showMessage, setShowMessage] = useState(false);
   const [showStats, setShowStats] = useState(false);
   const [confetti, setConfetti] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(false);
+  const [musicPlaying, setMusicPlaying] = useState(true); // Changed to true by default
   const [funnyMessages, setFunnyMessages] = useState<string[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -45,16 +45,63 @@ export default function DidisBirthday() {
     "18 = Legally adult, but forever our little Didi 💕"
   ];
 
-  // Initialize music
+  // Initialize music - auto play on load
   useEffect(() => {
+    // Create audio element
     audioRef.current = new Audio('/assets/didi-birthday.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
     
+    // Try to auto-play with user interaction fallback
+    const playAudio = async () => {
+      if (!audioRef.current) return;
+      
+      try {
+        // First attempt to play
+        await audioRef.current.play();
+        setMusicPlaying(true);
+        console.log("Audio auto-played successfully");
+      } catch (err) {
+        // If autoplay fails, set up user interaction to start
+        console.log("Auto-play failed, waiting for user interaction");
+        setMusicPlaying(false);
+        
+        // Add click event to start audio on first user interaction
+        const startAudioOnInteraction = () => {
+          if (audioRef.current && !musicPlaying) {
+            audioRef.current.play().then(() => {
+              setMusicPlaying(true);
+              console.log("Audio started on user interaction");
+            }).catch(e => {
+              console.log("Still can't play audio:", e);
+            });
+          }
+          // Remove event listeners after first interaction
+          document.removeEventListener('click', startAudioOnInteraction);
+          document.removeEventListener('touchstart', startAudioOnInteraction);
+          document.removeEventListener('keydown', startAudioOnInteraction);
+        };
+        
+        // Listen for user interaction
+        document.addEventListener('click', startAudioOnInteraction);
+        document.addEventListener('touchstart', startAudioOnInteraction);
+        document.addEventListener('keydown', startAudioOnInteraction);
+      }
+    };
+    
+    // Start playing
+    playAudio();
+    
+    // Cleanup
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
+        audioRef.current.currentTime = 0;
       }
+      // Remove any leftover event listeners
+      document.removeEventListener('click', () => {});
+      document.removeEventListener('touchstart', () => {});
+      document.removeEventListener('keydown', () => {});
     };
   }, []);
 
@@ -63,12 +110,14 @@ export default function DidisBirthday() {
     
     if (musicPlaying) {
       audioRef.current.pause();
+      setMusicPlaying(false);
     } else {
       audioRef.current.play().catch(e => {
         console.log("Audio play failed:", e);
+        setMusicPlaying(false);
       });
+      setMusicPlaying(true);
     }
-    setMusicPlaying(!musicPlaying);
   };
 
   const addFunnyMessage = () => {
@@ -85,6 +134,15 @@ export default function DidisBirthday() {
   const handleStart = () => {
     setStep(1);
     setTimeout(() => addFunnyMessage(), 500);
+    
+    // Ensure music is playing when user starts interaction
+    if (!musicPlaying && audioRef.current) {
+      audioRef.current.play().then(() => {
+        setMusicPlaying(true);
+      }).catch(e => {
+        console.log("Audio play on start failed:", e);
+      });
+    }
   };
 
   const handleLightCandles = () => {
@@ -159,9 +217,24 @@ export default function DidisBirthday() {
         transition={{ delay: 1 }}
         onClick={toggleMusic}
         className="fixed top-4 right-4 z-50 p-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 hover:from-pink-600 hover:to-rose-600 text-white shadow-xl hover:shadow-2xl transition-all hover:scale-110"
+        title={musicPlaying ? "Mute music" : "Play music"}
       >
         {musicPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
       </motion.button>
+
+      {/* Music Auto-play Indicator */}
+      {!musicPlaying && (
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="fixed top-20 right-4 z-50 bg-yellow-100 text-yellow-800 text-sm px-3 py-2 rounded-lg shadow-lg max-w-xs"
+        >
+          <div className="flex items-center gap-2">
+            <Music size={16} />
+            <span>Click anywhere to start music! 🎵</span>
+          </div>
+        </motion.div>
+      )}
 
       {/* Confetti */}
       <AnimatePresence>
@@ -235,6 +308,20 @@ export default function DidisBirthday() {
             >
               🎉 Let's Start the Party! 🎉
             </motion.button>
+            
+            <div className="mt-6 flex items-center justify-center gap-2 text-gray-500 text-sm">
+              {musicPlaying ? (
+                <>
+                  <Music size={16} className="text-pink-500" />
+                  <span>Music is playing! 🎵</span>
+                </>
+              ) : (
+                <>
+                  <VolumeX size={16} className="text-yellow-500" />
+                  <span>Click to start music! 🎵</span>
+                </>
+              )}
+            </div>
             
             <p className="text-gray-500 mt-6 text-sm">
               P.S. There might be cake. Just saying. 🍰
