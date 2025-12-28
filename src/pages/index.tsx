@@ -690,6 +690,7 @@ export default function DidisBirthday() {
             </div>
           </div>
         )}
+      </main>
 
       {/* CSS for floating animation */}
       <style jsx global>{`
