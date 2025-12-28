@@ -147,7 +147,7 @@ export default function DidisBirthday() {
               fontSize: `${10 + Math.random() * 20}px`
             }}
           >
-            {['🎉', '🎂', '🎁', '✨', '🥳', '🎈'][Math.floor(Math.random() * 6)]}
+            {['🌷', '🎂', '🩷', '✨', '🥳', '🎈'][Math.floor(Math.random() * 6)]}
           </div>
         ))}
       </div>
@@ -517,7 +517,7 @@ export default function DidisBirthday() {
               onClick={() => handleNextStep(6)}
               className="px-8 py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold text-xl shadow-xl hover:shadow-2xl transition-all"
             >
-              💌 Next: Birthday Message! 💌
+              💌 Next: Pyara Message! 💌
             </motion.button>
           </motion.div>
         )}
@@ -536,27 +536,27 @@ export default function DidisBirthday() {
             
             <div className="space-y-6 text-lg text-gray-700 bg-white/50 p-6 rounded-2xl">
               <p className="text-2xl text-center font-semibold text-pink-600">
-                Happy 18th Birthday, Didi! 🎉
+                Happyyyy 18th Birthday, Didi! 🎉
               </p>
               
               <p>
-                Wow, 18 years! That's <span className="font-bold text-pink-600">6,570 days</span> of being awesome, 
-                <span className="font-bold text-pink-600"> 157,680 hours</span> of making us smile, and 
+                Wowwww, 18 years! That's <span className="font-bold text-pink-600">6,570 days</span> of being prettyyyy, 
+                <span className="font-bold text-pink-600"> 157,680 hours</span> of making me smile, and 
                 <span className="font-bold text-pink-600"> too many moments</span> to count of being the best Didi ever!
               </p>
               
               <p>
-                We know you're all "grown up" now (officially!), but you'll always be our little sister. 
+                I know you're all "grown up" now (officially!), but you'll always be our little sister or maybe dadi ma. 
                 Even when you're 80 and telling kids about "the good old days" 📱➡️🧓
               </p>
               
               <div className="bg-gradient-to-r from-pink-100 to-rose-100 p-4 rounded-xl border-l-4 border-pink-400">
                 <p className="font-bold text-pink-700">Things that won't change now that you're 18:</p>
                 <ul className="list-disc list-inside mt-2 space-y-1">
-                  <li>You're still the coolest person we know 😎</li>
-                  <li>We'll still ask you for tech help (sorry not sorry) 💻</li>
+                  <li>You're still the cutest person we know 🩷</li>
+                  <li>i will still ask you for practical file help (sorry not sorry) 💻</li>
                   <li>You still get first dibs on birthday cake 🍰</li>
-                  <li>We'll always be proud of you, no matter what! 🌟</li>
+                  <li>I will always be proud of you, no matter what! 🌟</li>
                 </ul>
               </div>
               
@@ -578,7 +578,7 @@ export default function DidisBirthday() {
                 onClick={() => handleNextStep(7)}
                 className="px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xl shadow-xl hover:shadow-2xl transition-all"
               >
-                📊 Next: Fun Stats! 📊
+                📊 Next: Conclusion i guess 📊
               </motion.button>
             </div>
           </motion.div>
@@ -654,7 +654,7 @@ export default function DidisBirthday() {
               </p>
               
               <div className="text-6xl mb-6">
-                🎂🎁🎈✨🥳🎉
+                🎂🎁🎈✨🩷🌷
               </div>
               
               <p className="text-lg text-pink-600 font-semibold">
@@ -690,19 +690,6 @@ export default function DidisBirthday() {
             </div>
           </div>
         )}
-
-        {/* Add more funny messages button */}
-        {step > 0 && (
-          <div className="text-center mt-8">
-            <button
-              onClick={addFunnyMessage}
-              className="px-4 py-2 rounded-full bg-pink-100 hover:bg-pink-200 text-pink-600 font-medium transition-colors"
-            >
-              + Add Random Birthday Thought
-            </button>
-          </div>
-        )}
-      </main>
 
       {/* CSS for floating animation */}
       <style jsx global>{`
