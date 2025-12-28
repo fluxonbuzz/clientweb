@@ -37,10 +37,10 @@ export default function DidisBirthday() {
   // Funny messages that appear
   const funnyQuotes = [
     "Wait, you're telling me you're NOT a teenager anymore? 🤔",
-    "18 years of putting up with us... you deserve a medal! 🏅",
+    "18 years of putting up with us... you deserve a pyara sa tulip! 🌷",
     "Birthday tip: Eat cake for breakfast. It's scientifically proven! 🧪",
     "Warning: Adulting may cause sudden urges to buy plants 🪴",
-    "Remember when 18 seemed old? 😂 Welcome to the club!",
+    "Remember when 18 seemed old? 😂 Welcome to the buddhe log!",
     "Pro tip: You can now vote but still blame being 'young' 🗳️",
     "18 = Legally adult, but forever our little Didi 💕"
   ];
