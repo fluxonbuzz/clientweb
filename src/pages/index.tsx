@@ -29,6 +29,7 @@ export default function DidisBirthday() {
   const [musicPlaying, setMusicPlaying] = useState(false);
   const [showTitle, setShowTitle] = useState(false);
   const [titleComplete, setTitleComplete] = useState(false);
+  const [showFinal, setShowFinal] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const titleText = "Happy Birthday";
@@ -146,6 +147,9 @@ export default function DidisBirthday() {
     if (nextStep === 6) {
       setTimeout(() => setShowMessage(true), 300);
     }
+    if (nextStep === 7) {
+      setTimeout(() => setShowFinal(true), 300);
+    }
   };
 
   return (
@@ -178,7 +182,7 @@ export default function DidisBirthday() {
               scale: 0.3 + Math.random() * 0.7
             }}
             animate={{ 
-              y: [null, -Math.random() * 50 - 50, null],
+              y: [Math.random() * 100 + 100, -Math.random() * 50 - 50, Math.random() * 100 + 100],
               rotate: [0, 360, 0]
             }}
             transition={{
@@ -207,7 +211,7 @@ export default function DidisBirthday() {
               rotate: Math.random() * 360
             }}
             animate={{ 
-              y: [null, -Math.random() * 100 - 30, null],
+              y: [Math.random() * 100 + 100, -Math.random() * 100 - 30, Math.random() * 100 + 100],
               rotate: [0, 180, 360]
             }}
             transition={{
@@ -238,7 +242,7 @@ export default function DidisBirthday() {
             animate={{ 
               opacity: [0, 1, 0],
               scale: [0, 1, 0],
-              y: [null, -20, null]
+              y: [Math.random() * 100, Math.random() * 100 - 20, Math.random() * 100]
             }}
             transition={{
               duration: 2 + Math.random() * 2,
@@ -418,7 +422,7 @@ export default function DidisBirthday() {
                     transition={{ delay: 1.4 }}
                     className="text-lg text-gray-600 mb-2"
                   >
-                    (It's something special... with lots of surprises! ✨)
+                    (It's something special... with lots of surprises!)
                   </motion.p>
                   
                   <motion.p
@@ -427,7 +431,7 @@ export default function DidisBirthday() {
                     transition={{ delay: 1.6 }}
                     className="text-sm text-pink-500 italic"
                   >
-                    Spoiler alert: There's cake involved! 🍰
+                    Spoiler alert: There's cake involved!
                   </motion.p>
                 </div>
 
@@ -462,16 +466,16 @@ export default function DidisBirthday() {
                     {musicPlaying ? (
                       <>
                         <Music className="w-5 h-5 text-pink-500 animate-pulse" />
-                        <span className="text-pink-600">Music is playing! Feel the vibe! 🎵</span>
+                        <span className="text-pink-600">Music is playing! Feel the vibe!</span>
                       </>
                     ) : (
                       <>
                         <VolumeX className="w-5 h-5 text-yellow-500" />
-                        <span>Click anywhere to start the magical music! ✨</span>
+                        <span>Click anywhere to start the magical music!</span>
                       </>
                     )}
                   </div>
-                  <p className="text-pink-400 italic">Trust me, you're gonna love what comes next! 💕</p>
+                  <p className="text-pink-400 italic">Trust me, you're gonna love what comes next!</p>
                 </motion.div>
               </motion.div>
             )}
@@ -501,7 +505,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                Ta-da! Feast your eyes on this masterpiece! 🎂
+                Ta-da! Feast your eyes on this masterpiece!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -509,7 +513,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (Wait till you see what happens when we light these candles... it's magical! ✨)
+                (Wait till you see what happens when we light these candles... it's magical!)
               </motion.p>
             </motion.div>
 
@@ -580,10 +584,10 @@ export default function DidisBirthday() {
                 className="space-y-2"
               >
                 <p className="text-gray-500 italic">
-                  (Get ready for some sparkle magic! ✨)
+                  (Get ready for some sparkle magic!)
                 </p>
                 <p className="text-pink-500 text-sm">
-                  Spoiler: Next step involves making a secret wish... 🤫
+                  Spoiler: Next step involves making a secret wish...
                 </p>
               </motion.div>
             </div>
@@ -613,7 +617,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                Look at them glow! Now close your eyes and make it count! ✨
+                Look at them glow! Now close your eyes and make it count!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -621,7 +625,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (I won't peek, promise! But make it a good one... 🎁)
+                (I won't peek, promise! But make it a good one...)
               </motion.p>
             </motion.div>
 
@@ -729,10 +733,10 @@ export default function DidisBirthday() {
                 className="space-y-2"
               >
                 <p className="text-gray-500 italic">
-                  (Shhh... don't tell anyone what you wished for! 🌟)
+                  (Shhh... don't tell anyone what you wished for!)
                 </p>
                 <p className="text-pink-500 text-sm">
-                  Spoiler: Next up is the most delicious part... 🍰
+                  Spoiler: Next up is the most delicious part...
                 </p>
               </motion.div>
             </div>
@@ -762,7 +766,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                Time for the most important ritual... cake cutting! 🎂
+                Time for the most important ritual... cake cutting!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -770,7 +774,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (I saved you the corner piece with extra frosting! 🍰)
+                (I saved you the corner piece with extra frosting!)
               </motion.p>
             </motion.div>
 
@@ -845,10 +849,10 @@ export default function DidisBirthday() {
                 className="space-y-2"
               >
                 <p className="text-gray-500 italic">
-                  (The first slice is the best one... obviously! 😋)
+                  (The first slice is the best one... obviously!)
                 </p>
                 <p className="text-pink-500 text-sm">
-                  Spoiler: Wait till you see this masterpiece slice... it's perfect! ✨
+                  Spoiler: Wait till you see this masterpiece slice... it's perfect!
                 </p>
               </motion.div>
             </div>
@@ -878,7 +882,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                Behold! The most perfect cake slice in existence! 🍰
+                Behold! The most perfect cake slice in existence!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -886,7 +890,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (Look at those layers... it's almost too beautiful to eat! 😍)
+                (Look at those layers... it's almost too beautiful to eat!)
               </motion.p>
             </motion.div>
 
@@ -958,10 +962,10 @@ export default function DidisBirthday() {
                 className="space-y-2"
               >
                 <p className="text-gray-500 italic">
-                  (I know what you're thinking... it looks delicious! 😋)
+                  (I know what you're thinking... it looks delicious!)
                 </p>
                 <p className="text-pink-500 text-sm">
-                  Spoiler: Next is something blooming beautiful... 🌷
+                  Spoiler: Next is something blooming beautiful...
                 </p>
               </motion.div>
             </div>
@@ -969,7 +973,7 @@ export default function DidisBirthday() {
         )}
 
         {/* Step 5: Tulip Garden */}
-        {step >= 5 && showTulips && (
+        {step >= 5 && showTulips && !showMessage && !showFinal && (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
@@ -991,7 +995,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                18 tulips for 18 wonderful years! 🌷
+                18 tulips for 18 wonderful years!
               </motion.p>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -999,7 +1003,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (Each one represents a year of your amazing journey! 💕)
+                (Each one represents a year of your amazing journey!)
               </motion.p>
             </motion.div>
 
@@ -1077,10 +1081,10 @@ export default function DidisBirthday() {
                 className="space-y-2"
               >
                 <p className="text-gray-500 italic">
-                  (A garden of memories, just for you! 💐)
+                  (A garden of memories, just for you!)
                 </p>
                 <p className="text-pink-500 text-sm">
-                  Spoiler: The best part is yet to come... get ready for feels! 💌
+                  Spoiler: The best part is yet to come... get ready for feels!
                 </p>
               </motion.div>
             </div>
@@ -1088,7 +1092,7 @@ export default function DidisBirthday() {
         )}
 
         {/* Step 6: Special Message */}
-        {step >= 6 && showMessage && (
+        {step >= 6 && showMessage && !showFinal && (
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -1129,7 +1133,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.5 }}
                 className="text-xl text-gray-600"
               >
-                This one comes straight from the heart... 💝
+                This one comes straight from the heart...
               </motion.p>
             </motion.div>
 
@@ -1169,7 +1173,7 @@ export default function DidisBirthday() {
                   className="text-center"
                 >
                   <p className="text-2xl md:text-3xl font-bold text-pink-600 mb-6">
-                    Happy 18th Birthday! 🎉
+                    Happy 18th Birthday!
                   </p>
                   
                   <motion.div
@@ -1179,7 +1183,7 @@ export default function DidisBirthday() {
                     className="inline-block px-6 py-3 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full mb-6"
                   >
                     <span className="text-xl font-bold text-pink-600">
-                      Welcome to adulthood! 🎂
+                      Welcome to adulthood!
                     </span>
                   </motion.div>
                 </motion.div>
@@ -1198,7 +1202,7 @@ export default function DidisBirthday() {
                   
                   <p className="text-xl leading-relaxed">
                     I know you're all "grown up" now (officially!), but you'll always be that special person who brings joy wherever you go. 
-                    Even when you're 80 and telling stories about "back in my day" 📱➡️🧓
+                    Even when you're 80 and telling stories about "back in my day"
                   </p>
                   
                   <motion.div
@@ -1213,19 +1217,19 @@ export default function DidisBirthday() {
                     <ul className="space-y-3 text-lg">
                       <li className="flex items-center gap-3">
                         <Heart className="w-5 h-5 text-pink-500 fill-pink-300" />
-                        <span>You're still the most wonderful person I know 🩷</span>
+                        <span>You're still the most wonderful person I know</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <Star className="w-5 h-5 text-yellow-500 fill-yellow-300" />
-                        <span>Your ability to light up any room 🌟</span>
+                        <span>Your ability to light up any room</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <Cake className="w-5 h-5 text-rose-500" />
-                        <span>You still get first dibs on birthday cake (always!) 🍰</span>
+                        <span>You still get first dibs on birthday cake (always!)</span>
                       </li>
                       <li className="flex items-center gap-3">
                         <Gift className="w-5 h-5 text-purple-500" />
-                        <span>The special place you hold in our hearts 🎁</span>
+                        <span>The special place you hold in our hearts</span>
                       </li>
                     </ul>
                   </motion.div>
@@ -1303,7 +1307,7 @@ export default function DidisBirthday() {
                     transition={{ delay: 3.8 }}
                     className="text-gray-600 mt-4"
                   >
-                    (Made with lots of love, code, and virtual cake! 🍰💻)
+                    (Made with lots of love, code, and virtual cake!)
                   </motion.p>
                 </motion.div>
                 
@@ -1315,45 +1319,208 @@ export default function DidisBirthday() {
                 >
                   <PartyPopper className="w-16 h-16 text-pink-500 mx-auto" />
                   <p className="text-xl text-pink-600 font-semibold mt-4">
-                    Hope you loved your virtual birthday surprise! 🎉
+                    Hope you loved your virtual birthday surprise!
                   </p>
+                  
+                  <motion.button
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 20px 50px rgba(0, 0, 0, 0.6)"
+                    }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => handleNextStep(7)}
+                    className="mt-8 px-10 py-5 rounded-2xl bg-gradient-to-r from-gray-800 to-black hover:from-gray-900 hover:to-black text-white font-bold text-xl shadow-2xl hover:shadow-3xl transition-all group overflow-hidden"
+                  >
+                    <span className="relative z-10">One Last Surprise!</span>
+                  </motion.button>
                 </motion.div>
               </motion.div>
             </motion.div>
           </motion.div>
         )}
 
-        {/* Progress Indicator */}
-        {step > 0 && step < 6 && (
+        {/* Step 7: Final Dark Theme Message */}
+        {step >= 7 && showFinal && (
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mt-16 bg-white/50 backdrop-blur-sm rounded-2xl p-6 border-2 border-pink-100 shadow-xl"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="min-h-[80vh] flex flex-col items-center justify-center relative"
           >
-            <div className="flex justify-between items-center mb-4">
-              <span className="text-sm font-medium text-pink-600">Your Magical Journey:</span>
-              <span className="text-sm font-bold text-pink-700">{step}/6 Complete</span>
-            </div>
-            <div className="w-full bg-pink-200 rounded-full h-3 overflow-hidden">
+            {/* Dark Background with Stars */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-gray-900">
+              {/* Stars */}
+              {Array.from({ length: 100 }).map((_, i) => (
+                <motion.div
+                  key={i}
+                  className="absolute w-1 h-1 bg-white rounded-full"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: [0, 1, 0] }}
+                  transition={{
+                    duration: 2 + Math.random() * 3,
+                    repeat: Infinity,
+                    delay: Math.random() * 5
+                  }}
+                  style={{
+                    top: `${Math.random() * 100}%`,
+                    left: `${Math.random() * 100}%`,
+                  }}
+                />
+              ))}
+              
+              {/* Glowing Effect */}
               <motion.div
-                className="bg-gradient-to-r from-pink-500 to-rose-500 h-3 rounded-full"
-                initial={{ width: '0%' }}
-                animate={{ width: `${(step / 6) * 100}%` }}
-                transition={{ duration: 1, type: "spring" }}
+                className="absolute inset-0 bg-gradient-radial from-red-500/10 via-transparent to-transparent"
+                animate={{ opacity: [0.1, 0.3, 0.1] }}
+                transition={{ duration: 3, repeat: Infinity }}
               />
             </div>
-            <div className="flex justify-between text-xs text-pink-500 mt-3">
-              {['Cake', 'Wish', 'Cut', 'Garden', 'Message', 'Celebrate!'].map((text, index) => (
-                <motion.span
-                  key={index}
-                  initial={{ opacity: 0.5 }}
-                  animate={{ opacity: step > index ? 1 : 0.5 }}
-                  className={`font-medium ${step > index ? 'text-pink-600' : ''}`}
+
+            {/* Main Content */}
+            <motion.div
+              initial={{ scale: 0, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              className="relative z-10 text-center space-y-12"
+            >
+              {/* Title with Glitch Effect */}
+              <div className="relative">
+                <motion.h1
+                  initial={{ y: -100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, type: "spring" }}
+                  className="text-7xl md:text-9xl font-bold text-white mb-6 tracking-wider"
                 >
-                  {text}
-                </motion.span>
-              ))}
-            </div>
+                  <span className="bg-gradient-to-r from-red-600 via-pink-600 to-red-600 bg-clip-text text-transparent">
+                    CHUDAIL
+                  </span>
+                </motion.h1>
+                
+                <motion.h2
+                  initial={{ y: 100, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: 0.7, type: "spring" }}
+                  className="text-6xl md:text-8xl font-bold text-white"
+                >
+                  <span className="bg-gradient-to-r from-yellow-400 via-yellow-300 to-yellow-400 bg-clip-text text-transparent">
+                    HAI TU
+                  </span>
+                </motion.h2>
+                
+                <motion.div
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  transition={{ delay: 1, type: "spring" }}
+                  className="text-5xl mt-8 animate-pulse"
+                >
+                  😋
+                </motion.div>
+              </div>
+
+              {/* Spooky Animated Elements */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1.5 }}
+                className="space-y-8"
+              >
+                {/* Floating Ghosts */}
+                {[1, 2, 3].map((i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute text-4xl"
+                    animate={{ 
+                      y: [0, -20, 0],
+                      x: [0, 10, 0]
+                    }}
+                    transition={{
+                      duration: 3 + i,
+                      repeat: Infinity,
+                      ease: "easeInOut"
+                    }}
+                    style={{
+                      left: `${20 + i * 20}%`,
+                      top: `${30 + i * 10}%`,
+                    }}
+                  >
+                    👻
+                  </motion.div>
+                ))}
+
+                {/* Final Message */}
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2 }}
+                  className="bg-gradient-to-r from-gray-900/50 to-black/50 p-8 rounded-3xl border-2 border-red-900/50 backdrop-blur-sm max-w-2xl mx-auto"
+                >
+                  <p className="text-2xl text-gray-300 mb-6">
+                    Just kidding! You're the sweetest, most amazing person ever!
+                  </p>
+                  
+                  <motion.p
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 2.5 }}
+                    className="text-xl text-pink-400 font-semibold"
+                  >
+                    But seriously, happy 18th birthday! 🎉
+                  </motion.p>
+                  
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 3 }}
+                    className="mt-8 text-3xl"
+                  >
+                    🩷🎂🌟
+                  </motion.div>
+                </motion.div>
+
+                {/* Final Signature */}
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 3.5 }}
+                  className="pt-8"
+                >
+                  <p className="text-xl text-gray-400">
+                    With love and lots of mischief,
+                  </p>
+                  <p className="text-2xl text-pink-500 font-bold mt-2">
+                    Your Arnavi 💕
+                  </p>
+                </motion.div>
+              </motion.div>
+            </motion.div>
+
+            {/* Floating Hearts in Dark Theme */}
+            {Array.from({ length: 20 }).map((_, i) => (
+              <motion.div
+                key={`dark-heart-${i}`}
+                className="absolute text-2xl"
+                initial={{ 
+                  y: Math.random() * 100 + 100,
+                  x: Math.random() * 100,
+                  opacity: 0,
+                  scale: 0
+                }}
+                animate={{ 
+                  y: [Math.random() * 100 + 100, -Math.random() * 200 - 100, Math.random() * 100 + 100],
+                  opacity: [0, 0.5, 0],
+                  scale: [0, 1, 0]
+                }}
+                transition={{
+                  duration: 5 + Math.random() * 5,
+                  repeat: Infinity,
+                  delay: Math.random() * 5
+                }}
+                style={{
+                  left: `${Math.random() * 100}%`,
+                }}
+              >
+                ❤️
+              </motion.div>
+            ))}
           </motion.div>
         )}
       </main>
