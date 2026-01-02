@@ -653,7 +653,6 @@ export default function DidisBirthday() {
                     initial={{ scale: 0 }}
                     animate={
                       candlesLit ? {
-                        scale: 1,
                         y: [0, -3, 0, -2, 0],
                         scale: [1, 1.1, 1, 1.05, 1]
                       } : {
@@ -662,8 +661,12 @@ export default function DidisBirthday() {
                     }
                     transition={
                       candlesLit ? {
-                        scale: { delay: i * 0.05, type: "spring" },
                         y: {
+                          repeat: Infinity,
+                          duration: 1 + Math.random() * 0.5,
+                          delay: i * 0.05
+                        },
+                        scale: {
                           repeat: Infinity,
                           duration: 1 + Math.random() * 0.5,
                           delay: i * 0.05
@@ -1286,7 +1289,7 @@ export default function DidisBirthday() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 3 }}
                 className="mt-12 text-center space-y-8"
-            >
+              >
                 <div className="text-4xl md:text-5xl mb-6">
                   🎂🎁🎈✨🩷🌷💝🌟
                 </div>
