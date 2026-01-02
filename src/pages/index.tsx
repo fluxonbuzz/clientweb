@@ -28,13 +28,11 @@ export default function DidisBirthday() {
   const [showCakeCut, setShowCakeCut] = useState(false);
   const [showTulips, setShowTulips] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
-  const [showStats, setShowStats] = useState(false);
   const [confetti, setConfetti] = useState(false);
-  const [musicPlaying, setMusicPlaying] = useState(true); // Changed to true by default
+  const [musicPlaying, setMusicPlaying] = useState(false);
   const [funnyMessages, setFunnyMessages] = useState<string[]>([]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
-  // Funny messages that appear
   const funnyQuotes = [
     "Wait, you're telling me you're NOT a teenager anymore? 🤔",
     "18 years of putting up with us... you deserve a pyara sa tulip! 🌷",
@@ -45,60 +43,44 @@ export default function DidisBirthday() {
     "18 = Legally adult, but forever our little Didi 💕"
   ];
 
-  // Initialize music - auto play on load
   useEffect(() => {
-    // Create audio element
     audioRef.current = new Audio('/assets/didi-birthday.mp3');
     audioRef.current.loop = true;
     audioRef.current.volume = 0.4;
     
-    // Try to auto-play with user interaction fallback
     const playAudio = async () => {
       if (!audioRef.current) return;
       
       try {
-        // First attempt to play
         await audioRef.current.play();
         setMusicPlaying(true);
-        console.log("Audio auto-played successfully");
       } catch (err) {
-        // If autoplay fails, set up user interaction to start
-        console.log("Auto-play failed, waiting for user interaction");
         setMusicPlaying(false);
         
-        // Add click event to start audio on first user interaction
         const startAudioOnInteraction = () => {
           if (audioRef.current && !musicPlaying) {
             audioRef.current.play().then(() => {
               setMusicPlaying(true);
-              console.log("Audio started on user interaction");
-            }).catch(e => {
-              console.log("Still can't play audio:", e);
             });
           }
-          // Remove event listeners after first interaction
           document.removeEventListener('click', startAudioOnInteraction);
           document.removeEventListener('touchstart', startAudioOnInteraction);
           document.removeEventListener('keydown', startAudioOnInteraction);
         };
         
-        // Listen for user interaction
         document.addEventListener('click', startAudioOnInteraction);
         document.addEventListener('touchstart', startAudioOnInteraction);
         document.addEventListener('keydown', startAudioOnInteraction);
       }
     };
     
-    // Start playing
     playAudio();
     
-    // Cleanup
     return () => {
       if (audioRef.current) {
         audioRef.current.pause();
         audioRef.current.currentTime = 0;
       }
-      // Remove any leftover event listeners
       document.removeEventListener('click', () => {});
       document.removeEventListener('touchstart', () => {});
       document.removeEventListener('keydown', () => {});
@@ -113,7 +95,6 @@ export default function DidisBirthday() {
       setMusicPlaying(false);
     } else {
       audioRef.current.play().catch(e => {
-        console.log("Audio play failed:", e);
         setMusicPlaying(false);
       });
       setMusicPlaying(true);
@@ -130,17 +111,13 @@ export default function DidisBirthday() {
     }
   };
 
-  // Step functions
   const handleStart = () => {
     setStep(1);
     setTimeout(() => addFunnyMessage(), 500);
     
-    // Ensure music is playing when user starts interaction
     if (!musicPlaying && audioRef.current) {
       audioRef.current.play().then(() => {
         setMusicPlaying(true);
-      }).catch(e => {
-        console.log("Audio play on start failed:", e);
       });
     }
   };
@@ -180,13 +157,11 @@ export default function DidisBirthday() {
     setStep(nextStep);
     if (nextStep === 5) setShowTulips(true);
     if (nextStep === 6) setShowMessage(true);
-    if (nextStep === 7) setShowStats(true);
     addFunnyMessage();
   };
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-pink-50 via-rose-50 to-pink-100 overflow-x-hidden font-sans">
-      {/* Background Elements */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-10 left-10 opacity-10">
           <Cake className="w-24 h-24 text-pink-300" />
@@ -210,7 +185,6 @@ export default function DidisBirthday() {
         ))}
       </div>
 
-      {/* Music Button */}
       <motion.button
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -222,21 +196,6 @@ export default function DidisBirthday() {
         {musicPlaying ? <Volume2 size={24} /> : <VolumeX size={24} />}
       </motion.button>
 
-      {/* Music Auto-play Indicator */}
-      {!musicPlaying && (
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="fixed top-20 right-4 z-50 bg-yellow-100 text-yellow-800 text-sm px-3 py-2 rounded-lg shadow-lg max-w-xs"
-        >
-          <div className="flex items-center gap-2">
-            <Music size={16} />
-            <span>Click anywhere to start music! 🎵</span>
-          </div>
-        </motion.div>
-      )}
-
-      {/* Confetti */}
       <AnimatePresence>
         {confetti && (
           <div className="fixed inset-0 pointer-events-none z-40">
@@ -267,9 +226,7 @@ export default function DidisBirthday() {
         )}
       </AnimatePresence>
 
-      {/* Main Content */}
       <main className="relative z-10 container mx-auto px-4 py-8 max-w-4xl">
-        {/* Start Screen */}
         {step === 0 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -318,7 +275,7 @@ export default function DidisBirthday() {
               ) : (
                 <>
                   <VolumeX size={16} className="text-yellow-500" />
-                  <span>Click to start music! 🎵</span>
+                  <span>Click anywhere to start music! 🎵</span>
                 </>
               )}
             </div>
@@ -329,7 +286,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 1: Cake with candles */}
         {step === 1 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -353,7 +309,6 @@ export default function DidisBirthday() {
                 unoptimized
               />
               
-              {/* Candles */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-4 flex gap-2 flex-wrap justify-center max-w-full px-4">
                 {[...Array(18)].map((_, i) => (
                   <motion.div
@@ -363,10 +318,8 @@ export default function DidisBirthday() {
                     transition={{ delay: i * 0.05 }}
                     className="relative"
                   >
-                    {/* Candle */}
                     <div className="w-2 h-12 bg-gradient-to-b from-yellow-100 to-amber-200 rounded-t-lg mx-auto" />
                     
-                    {/* Unlit flame */}
                     <div className="absolute -top-2 left-1/2 transform -translate-x-1/2">
                       <div className="w-3 h-4 bg-gray-300 rounded-full" />
                     </div>
@@ -390,7 +343,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 2: Candles Lit */}
         {step === 2 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -414,7 +366,6 @@ export default function DidisBirthday() {
                 unoptimized
               />
               
-              {/* Lit Candles */}
               <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-6 flex gap-2 flex-wrap justify-center max-w-full px-4">
                 {[...Array(18)].map((_, i) => (
                   <motion.div
@@ -430,10 +381,8 @@ export default function DidisBirthday() {
                     }}
                     className="relative"
                   >
-                    {/* Candle */}
                     <div className="w-2 h-12 bg-gradient-to-b from-yellow-100 to-amber-200 rounded-t-lg mx-auto" />
                     
-                    {/* Lit flame */}
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
                       <div className="w-4 h-6 bg-gradient-to-b from-yellow-300 via-orange-400 to-red-500 rounded-full blur-sm" />
                     </div>
@@ -462,7 +411,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 3: Cut the Cake */}
         {step === 3 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -486,7 +434,6 @@ export default function DidisBirthday() {
                 unoptimized
               />
               
-              {/* Cake cutting animation hint */}
               {!cakeCut && (
                 <motion.div
                   animate={{ x: [0, 100, 0] }}
@@ -518,7 +465,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 4: Show Cut Cake */}
         {step === 4 && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -562,7 +508,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 5: Tulip Garden */}
         {step >= 5 && showTulips && (
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -609,7 +554,6 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Step 6: Special Message */}
         {step >= 6 && showMessage && (
           <motion.div
             initial={{ opacity: 0 }}
@@ -659,87 +603,6 @@ export default function DidisBirthday() {
             </div>
             
             <div className="mt-8 text-center">
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => handleNextStep(7)}
-                className="px-8 py-4 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white font-bold text-xl shadow-xl hover:shadow-2xl transition-all"
-              >
-                📊 Next: Conclusion i guess 📊
-              </motion.button>
-            </div>
-          </motion.div>
-        )}
-
-        {/* Step 7: Fun Stats */}
-        {step >= 7 && showStats && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center"
-          >
-            <div className="mb-8">
-              <h2 className="text-4xl font-bold text-pink-700 mb-4">Didi's 18th Birthday Stats! 📈</h2>
-              <p className="text-lg text-gray-600">Some totally scientific and not-made-up facts!</p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-              {[
-                { number: '6,570', label: 'Days of Awesomeness', icon: '🌟', color: 'from-yellow-400 to-orange-400' },
-                { number: '18', label: 'Official Adult Status', icon: '🎓', color: 'from-blue-400 to-purple-400' },
-                { number: '∞', label: 'Future Possibilities', icon: '🚀', color: 'from-pink-400 to-rose-400' },
-                { number: '100%', label: 'Coolness Level', icon: '😎', color: 'from-green-400 to-emerald-400' },
-                { number: '24/7', label: 'Sibling Love', icon: '💕', color: 'from-red-400 to-pink-400' },
-                { number: '🎂', label: 'Cakes Deserved', icon: '🍰', color: 'from-amber-400 to-yellow-400' }
-              ].map((stat, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  whileHover={{ scale: 1.05 }}
-                  className={`bg-gradient-to-br ${stat.color} rounded-2xl p-6 text-white shadow-lg`}
-                >
-                  <div className="text-5xl font-bold mb-2">{stat.number}</div>
-                  <div className="text-lg font-semibold">{stat.label}</div>
-                  <div className="text-3xl mt-2">{stat.icon}</div>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Funny Messages Sidebar */}
-            <div className="bg-white/80 rounded-2xl p-6 border-2 border-pink-200 mb-8">
-              <h3 className="text-2xl font-bold text-pink-700 mb-4">Random Birthday Thoughts 💭</h3>
-              <div className="space-y-3">
-                {funnyMessages.map((msg, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="text-left p-3 bg-pink-50 rounded-lg border border-pink-100"
-                  >
-                    <div className="flex items-start gap-2">
-                      <Smile className="w-5 h-5 text-pink-500 mt-1 flex-shrink-0" />
-                      <span>{msg}</span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Final Celebration */}
-            <div className="bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-3xl p-8 border-4 border-pink-300/50">
-              <Sparkles className="w-20 h-20 text-pink-500 mx-auto mb-6" />
-              <h3 className="text-3xl font-bold text-pink-700 mb-4">
-                🎉 Happy 18th Birthday, Didi! 🎉
-              </h3>
-              <p className="text-xl text-gray-700 mb-6">
-                You made it through all the steps! Now go enjoy your real birthday!<br />
-                Eat cake, open presents, and remember - age is just a number!<br />
-                (But 18 is a pretty cool number! 😉)
-              </p>
-              
               <div className="text-6xl mb-6">
                 🎂🎁🎈✨🩷🌷
               </div>
@@ -751,18 +614,17 @@ export default function DidisBirthday() {
           </motion.div>
         )}
 
-        {/* Progress Indicator */}
         {step > 0 && (
           <div className="mt-12">
             <div className="flex justify-between items-center mb-4">
               <span className="text-sm font-medium text-pink-600">Birthday Progress:</span>
-              <span className="text-sm font-bold text-pink-700">{step}/7 Complete</span>
+              <span className="text-sm font-bold text-pink-700">{step}/6 Complete</span>
             </div>
             <div className="w-full bg-pink-200 rounded-full h-3">
               <motion.div
                 className="bg-gradient-to-r from-pink-500 to-rose-500 h-3 rounded-full"
                 initial={{ width: '0%' }}
-                animate={{ width: `${(step / 7) * 100}%` }}
+                animate={{ width: `${(step / 6) * 100}%` }}
                 transition={{ duration: 0.5 }}
               />
             </div>
@@ -772,14 +634,12 @@ export default function DidisBirthday() {
               <span>Cut</span>
               <span>Tulips</span>
               <span>Message</span>
-              <span>Stats</span>
               <span>Celebrate!</span>
             </div>
           </div>
         )}
       </main>
 
-      {/* CSS for floating animation */}
       <style jsx global>{`
         @keyframes float {
           0%, 100% { transform: translateY(0px) rotate(0deg); }
