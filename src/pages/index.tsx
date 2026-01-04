@@ -787,7 +787,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (I saved you the corner piece with extra frosting!)
+                (I saved you the corner piece with extra frosting lol)
               </motion.p>
             </motion.div>
 
@@ -903,7 +903,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (Look at those layers... it's almost too beautiful to eat!)
+                (Look at those layers... i made them in tulip flavour)
               </motion.p>
             </motion.div>
 
@@ -1016,7 +1016,7 @@ export default function DidisBirthday() {
                 transition={{ delay: 0.7 }}
                 className="text-lg text-pink-500 mt-2"
               >
-                (Each one represents a year of your amazing journey!)
+                (Each one represents a year of your pyari journey)
               </motion.p>
             </motion.div>
 
@@ -1083,7 +1083,7 @@ export default function DidisBirthday() {
                 onClick={() => handleNextStep(6)}
                 className="relative px-10 py-5 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-bold text-xl shadow-2xl hover:shadow-3xl transition-all group overflow-hidden"
               >
-                <span className="relative z-10">Next Beautiful Surprise!</span>
+                <span className="relative z-10">Next Sundar Surprise!</span>
                 <Heart className="absolute -top-2 -right-2 w-6 h-6 text-red-300 animate-pulse" />
               </motion.button>
               
@@ -1196,7 +1196,7 @@ export default function DidisBirthday() {
                     className="inline-block px-6 py-3 bg-gradient-to-r from-pink-500/10 to-rose-500/10 rounded-full mb-6"
                   >
                     <span className="text-xl font-bold text-pink-600">
-                      Welcome to adulthood!
+                      Welcome to budhapaaaa
                     </span>
                   </motion.div>
                 </motion.div>
@@ -1208,9 +1208,9 @@ export default function DidisBirthday() {
                   className="space-y-6"
                 >
                   <p className="text-xl leading-relaxed">
-                    Wow, 18 years! That's <span className="font-bold text-pink-600">6,570 days</span> of being absolutely amazing, 
+                    Wow, 18 years! That's <span className="font-bold text-pink-600">6,570 days</span> of being the sweetest prani ever, 
                     <span className="font-bold text-pink-600"> 157,680 hours</span> of making the world brighter, and 
-                    <span className="font-bold text-pink-600"> countless moments</span> of being the incredible person you are!
+                    <span className="font-bold text-pink-600"> countless moments</span> of being the pyariest person you are!
                   </p>
                   
                   <p className="text-xl leading-relaxed">
@@ -1263,7 +1263,7 @@ export default function DidisBirthday() {
                     className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-4"
                   >
                     {[
-                      { emoji: '✨', text: 'Magic', color: 'from-yellow-400 to-orange-400' },
+                      { emoji: '✨', text: 'Marks', color: 'from-yellow-400 to-orange-400' },
                       { emoji: '💕', text: 'Love', color: 'from-pink-400 to-rose-400' },
                       { emoji: '😂', text: 'Laughter', color: 'from-blue-400 to-purple-400' },
                       { emoji: '🎂', text: 'Cake', color: 'from-amber-400 to-yellow-400' }
@@ -1301,7 +1301,7 @@ export default function DidisBirthday() {
                   className="inline-block px-8 py-4 bg-gradient-to-r from-pink-500/20 to-rose-500/20 rounded-full border-2 border-pink-300/50"
                 >
                   <p className="text-2xl font-bold text-pink-700">
-                    With all my love on your special day!
+                    With all my love on your special dayyyyyyyyyyyyy
                   </p>
                 </motion.div>
                 
@@ -1320,7 +1320,7 @@ export default function DidisBirthday() {
                     transition={{ delay: 3.8 }}
                     className="text-gray-600 mt-4"
                   >
-                    (Made with lots of love, code, and virtual cake!)
+                    meow meow meow meowwwww
                   </motion.p>
                 </motion.div>
                 
@@ -1485,7 +1485,7 @@ export default function DidisBirthday() {
                     transition={{ delay: 3 }}
                     className="mt-8 text-3xl"
                   >
-                    🩷🎂🌟
+                    🩷💌🧿
                   </motion.div>
                 </motion.div>
 
